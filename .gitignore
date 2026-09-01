@@ -1,0 +1,18 @@
+# Build
+build/
+bin/
+lib/
+*.o
+*.a
+*.so
+
+# IDEs
+.vscode/
+.idea/
+*.cbp
+*.depend
+*.layout
+
+# Logs gerados
+*.log
+audit_blackbox.txt
