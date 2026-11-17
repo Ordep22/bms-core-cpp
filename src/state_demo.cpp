@@ -17,22 +17,19 @@
 //   - Failsafe é retentivo: só sai por rearme explícito, e apenas em
 //     modo de caracterização.
 // =====================================================================
-#include "state_demo.hpp"
+#include <cstdint>
+#include <cstdio>
 
-namespace {
-    enum class SystemState : std::uint8_t { Boot, Nominal, EmergencyFailsafe };
-}
+enum class SystemState : std::uint8_t { Boot, Nominal, EmergencyFailsafe };
 
-namespace {
-    enum class SafetyEvent : std::uint8_t {
-        None,
-        OverVoltage,
-        UnderVoltage,
-        OverCurrent,
-        ThermalRunaway,
-        DeadlineViolation
-    };
-}
+enum class SafetyEvent : std::uint8_t {
+    None,
+    OverVoltage,
+    UnderVoltage,
+    OverCurrent,
+    ThermalRunaway,
+    DeadlineViolation
+};
 
 const char* toString(SystemState s) {
     switch (s) {
