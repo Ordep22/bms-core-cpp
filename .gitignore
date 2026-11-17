@@ -2,6 +2,7 @@
 build/
 bin/
 lib/
+src/state_demo
 *.o
 *.a
 *.so
@@ -16,3 +17,10 @@ lib/
 # Logs gerados
 *.log
 audit_blackbox.txt
+
+#Docs
+.DS_Store
+.$*.bkp
+
+# Test
+Testing/
