@@ -41,12 +41,13 @@ namespace bms {
         float rul_cycles{0.0f};
     };
 
-    // Limites operacionais de segurança
+    // Regra: UM campo por condição usada no SafetyMonitor::evaluate().
     struct SafetyThresholds {
-        float max_voltage_v{4.2f};
-        float min_voltage_v{2.8f};
-        float max_current_a{30.0f};
-        float max_temperature_c {0.0f}; // TODO: θ crítico do CONOPS 2.7.1
-        float max_dtemp_c_per_s{60.0f};
-    };
+    float max_voltage_v{4.2f};        // sobretensão:   V > max_voltage_v
+    float min_voltage_v{2.8f};        // subtensão:     V < min_voltage_v
+    float max_current_a{30.0f};       // sobrecorrente: |I| > max_current_a (D1)
+    float max_temperature_c{60.0f};   // Tmax do detector térmico
+    float max_dtemp_c_per_s{1.0f};    // θ crítico, em °C/s
+    // TODO: valor PROVISÓRIO. Trocar pelo θ do CONOPS (2.7.1).
+};
 }  // namespace bms
