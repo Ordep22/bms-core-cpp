@@ -22,13 +22,13 @@
 //   - Amostra dentro dos limites ........... None
 //   - V > Vmax ............................. OverVoltage
 //   - V < Vmin ............................. UnderVoltage
-//   - corrente acima do limite ............. OverCurrent        [D1] sinal da corrente
-//   - Valor exatamente no limite ........... [D2] é violação?
+//   - corrente |I| acima do limite ......... OverCurrent        [D1: módulo]
+//   - Valor exatamente no limite ........... None (violação só além do limite) [D2]
 //   - T > Tmax E dT/dt > θ ................. ThermalRunaway
-//   - Só um dos dois limiares térmicos ..... [D3] None? OverTemperature?
+//   - Só um dos dois limiares térmicos ..... None  [D3: aceita; limitação conhecida, no radar]
 //   - Primeira amostra (sem anterior) ...... dT/dt não é avaliado
 //   - Intervalo de tempo igual a zero ...... sem divisão por zero
-//   - Mais de uma violação na amostra ...... [D4] qual evento tem prioridade?
+//   - Mais de uma violação na amostra ...... ThermalRunaway > OverCurrent > OverVoltage > UnderVoltage [D4]
 //   - setThresholds() ...................... novos limites valem na amostra seguinte
 // =====================================================================
 
